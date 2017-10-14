@@ -1,0 +1,2 @@
+#!/usr/bin/env ruby
+require File.dirname(File.dirname(__FILE__)) + '/lib/ticket_finder.rb'
