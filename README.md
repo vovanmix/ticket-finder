@@ -28,6 +28,8 @@ Next he will be asked to specify the field to search by. It is a free input and 
 
 Next user has to enter the value for search. After that the app will return the list of all the records that have such value. Related records will also be included with just their names. If there are one-to-many relation, all related records' names will be printed.
 
+Search by multi-value fields (like tags) is performed per-option, so the user should enter the full value of one of the tags.
+
 To search for missing fields (find all records where the field is not present), when asked to provide a value user should just press enter without typing anything.
 
 ### View searchable fields
