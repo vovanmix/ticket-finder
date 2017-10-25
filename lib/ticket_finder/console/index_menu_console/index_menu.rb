@@ -24,7 +24,8 @@ module TicketFinder
               next_handler: ::TicketFinder::Console::FieldsConsole::FieldsModule.new
             )
           else
-            raise ::TicketFinder::Console::ValidationError.new('Please select either 1 or 2')
+            raise ::TicketFinder::Console::ValidationError
+              .new('Please select either 1 or 2')
           end
         end
 

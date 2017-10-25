@@ -56,6 +56,8 @@ module TicketFinder
           User.new(result)
         when :tickets
           Ticket.new(result)
+        when :accounts
+          Model.new(result)
         else
           raise IncorrectFormatter.new
         end

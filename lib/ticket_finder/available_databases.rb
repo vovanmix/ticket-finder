@@ -1,3 +1,3 @@
 module TicketFinder
-  DATABASES = [:organizations, :tickets, :users].freeze
+  DATABASES = [:organizations, :tickets, :users, :accounts].freeze
 end

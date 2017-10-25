@@ -5,7 +5,7 @@ module TicketFinder
 
         def perform(_)
           ::TicketFinder::Console::ConsoleResponse.new(
-            text: 'Select 1) Users or 2) Tickets or 3) Organizations',
+            text: 'Select 1) Users or 2) Tickets or 3) Organizations, 4) Accounts',
             needs_answer: true
           )
         end
@@ -13,13 +13,20 @@ module TicketFinder
         def process(input, _)
           case input
           when '1'
-            ::TicketFinder::Console::ProcessResult.new(key: :search_type, value: :users)
+            ::TicketFinder::Console::ProcessResult
+              .new(key: :search_type, value: :users)
           when '2'
-            ::TicketFinder::Console::ProcessResult.new(key: :search_type, value: :tickets)
+            ::TicketFinder::Console::ProcessResult
+              .new(key: :search_type, value: :tickets)
           when '3'
-            ::TicketFinder::Console::ProcessResult.new(key: :search_type, value: :organizations)
+            ::TicketFinder::Console::ProcessResult
+              .new(key: :search_type, value: :organizations)
+          when '4'
+            ::TicketFinder::Console::ProcessResult
+              .new(key: :search_type, value: :accounts)
           else
-            raise ::TicketFinder::Console::ValidationError.new('Please select either 1, 2 or 3')
+            raise ::TicketFinder::Console::ValidationError
+                    .new('Please select either 1, 2 or 3')
           end
         end
 
