@@ -13,9 +13,9 @@ module TicketFinder
 
       def format
         @results.map { |result|
-          model = make_model(result)
-          model.fields.map { |field|
-            format_field(field, model.send(field))
+          fields = make_model(result)
+          fields.each_key.map { |field_name|
+            format_field(field_name, fields[field_name])
           }.join("\n")
         }.join("\n#{DELIMITER}\n")
       end
@@ -49,18 +49,38 @@ module TicketFinder
       end
 
       def make_model(result)
-        case @db_name
-        when :organizations
-          Organization.new(result)
-        when :users
-          User.new(result)
-        when :tickets
-          Ticket.new(result)
-        when :accounts
-          Model.new(result)
-        else
-          raise IncorrectFormatter.new
-        end
+        # read json
+
+        # go over all fields
+        # include relations
+
+        # case @db_name
+        # when :organizations
+        #   Organization.new(result)
+        # when :users
+        #   User.new(result)
+        # when :tickets
+        #   Ticket.new(result)
+        # when :accounts
+        #   Model.new(result)
+        # else
+        #   raise IncorrectFormatter.new
+        # end
+      end
+
+      
+
+      def read_schema
+        raise SchemaMissing unless db_exist?
+        ::JSON.parse(File.read(schema_file_path))
+      end
+
+      def schema_file_path
+        "#{project_root}/index/schema.json"
+      end
+
+      def project_root
+        File.absolute_path(File.dirname(__FILE__) + '/../..')
       end
 
     end

@@ -1,0 +1,24 @@
+{
+  "organization": {
+    "tickets": {
+      "type": "has_many",
+      "database": "tickets",
+      "key": "organization_id",
+      "display": "subject"
+    },
+    "users": {
+      "type": "has_many",
+      "database": "users",
+      "key": "organization_id",
+      "display": "name"
+    }
+  },
+  "user": {
+    "organization": {
+      "type": "belongs_to",
+      "database": "organizations",
+      "key": "organization_id",
+      "display": "name"
+    }
+  }
+}
