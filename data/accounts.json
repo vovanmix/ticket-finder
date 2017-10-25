@@ -1,0 +1,18 @@
+[
+  {
+    "_id": "650",
+    "name": "Rockstar Support",
+    "subdomain": "rockstarsupport.zendesk.com",
+    "active": "true",
+    "plan": "4",
+    "created_at": "2016-01-21T06:02:01 -11:00"
+  },
+  {
+    "_id": "651",
+    "name": "Riot Games Support",
+    "subdomain": "riotgames.zendesk.com",
+    "active": "true",
+    "plan": "3",
+    "created_at": "2016-02-21T06:02:01 -11:00"
+  }
+]
